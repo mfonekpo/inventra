@@ -46,3 +46,4 @@ compose.override.yaml
 Thumbs.db
 *.zip
 dataset
+/notebooks
