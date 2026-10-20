@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_inventra__branches
+    description: "One row per branch, with cleaned text and typed metrics."
+    columns:
+      - name: branch_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: branch_name
+        data_tests:
+          - not_null
+
+      - name: city
+        data_tests:
+          - not_null
+
+      - name: state
+        data_tests:
+          - not_null
+
+      - name: region
+        data_tests:
+          - not_null
+
+      - name: warehouse_capacity_value
+        description: "Warehouse capacity in square feet."
+        data_tests:
+          - not_null
+
+      - name: warehouse_capacity_unit
+        description: "The unit of warehouse_capacity."
+        data_tests:
+          - not_null
+
+      - name: service_center_available
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Yes", "No"]
+
+      - name: total_employees
+        data_tests:
+          - not_null
+
+      - name: manager_id
+        data_tests:
+          - not_null
+          - unique
+
+
+      - name: avg_monthly_revenue
+        data_tests:
+          - not_null
+
+      - name: monthly_operational_cost
+        data_tests:
+          - not_null
+
+      - name: market_demand_index
+        data_tests:
+          - not_null
