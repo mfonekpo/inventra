@@ -14,7 +14,8 @@ DBT_ARGS ?=
 DOCS_PORT ?= 8080
 CMD ?= --help
 SOURCE_NAME ?= inventra_raw
-TABLE_NAME ?= raw_customers
+# Required for generate-base-model, e.g. TABLE_NAME=raw_customers.
+TABLE_NAME ?=
 
 DBT_RUN = "$(PYTHON)" -m dotenv -f "$(ENV_FILE)" run -- "$(DBT)"
 DBT_FLAGS = --profiles-dir "$(DBT_PROJECT_DIR)" --project-dir "$(DBT_PROJECT_DIR)"
@@ -47,7 +48,7 @@ help:
 		'  make clean              Remove configured local build/package directories' \
 		'Documentation:' \
 		'  make generate-source    Print source YAML for the tables in schema.yaml' \
-		'  make generate-base-model  Print base SQL (SOURCE_NAME=inventra_raw TABLE_NAME=raw_customers)' \
+		'  make generate-base-model TABLE_NAME=<table>  Print base SQL (SOURCE_NAME=inventra_raw)' \
 		'  make docs               Generate documentation' \
 		'  make docs-serve         Serve documentation on localhost (DOCS_PORT=8080)' \
 		'Examples:' \
@@ -91,6 +92,7 @@ generate-source:
 		$(DBT_RUN) run-operation generate_source $(DBT_FLAGS) --args "$$dbt_source_args" $(DBT_ARGS)
 
 generate-base-model:
+	$(if $(strip $(TABLE_NAME)),,$(error TABLE_NAME is required. Usage: make generate-base-model TABLE_NAME=raw_customers))
 	$(DBT_RUN) run-operation generate_base_model $(DBT_FLAGS) --args '{"source_name": "$(SOURCE_NAME)", "table_name": "$(TABLE_NAME)"}' $(DBT_ARGS)
 
 freshness: source-freshness
