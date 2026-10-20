@@ -23,7 +23,7 @@ target/
 dbt_packages/
 dbt.log
 logs/
-profiles.yml
+# profiles.yml
 # Downloaded source data and local pipeline working files
 data/raw/
 data/processed/
@@ -46,3 +46,4 @@ compose.override.yaml
 Thumbs.db
 *.zip
 dataset
+/notebooks

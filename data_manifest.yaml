@@ -1,0 +1,98 @@
+version: 1
+kind: source_snapshot
+verified_on: "2026-10-13"
+source_root: dataset
+
+csv:
+  encoding: utf-8
+  delimiter: ","
+  quotechar: '"'
+  has_header: true
+
+total_rows: 605141
+total_bytes: 40972777
+
+files:
+  branches:
+    file: branches.csv
+    row_count: 6
+    column_count: 13
+    size_bytes: 776
+    sha256: "041730f1b17c3c38e1ca7b07d94e248b611c5397e09b37c384f55ca97026a8e2"
+
+  customers:
+    file: customers.csv
+    row_count: 500
+    column_count: 15
+    size_bytes: 58510
+    sha256: "92ebe4be8a5d97369b581265c811d266ba2443d052e10cf7e5b98c79b4980721"
+
+  inventory_master:
+    file: inventory_master.csv
+    row_count: 180
+    column_count: 8
+    size_bytes: 6743
+    sha256: "fd83526cbbdb043177bd7adaaf868970e7e6f963988928b166efe84a003b52c9"
+
+  invoices:
+    file: invoices.csv
+    row_count: 18033
+    column_count: 10
+    size_bytes: 1692182
+    sha256: "b025b49bc1c2264a874d73a601aa47d6f210368209afb691627d83be763285c9"
+
+  payments:
+    file: payments.csv
+    row_count: 19257
+    column_count: 5
+    size_bytes: 984383
+    sha256: "8bc69d0c17a58804f0c687c613e5a6cf4fe3c2be07a6c45148398a298b18bf19"
+
+  products:
+    file: products.csv
+    row_count: 30
+    column_count: 23
+    size_bytes: 4712
+    sha256: "6cf80188b62cb545476e1442c35ad89febd4ef3920e2ea88a61c78acb0e7c235"
+
+  purchase_orders_header:
+    file: purchase_orders_header.csv
+    row_count: 24000
+    column_count: 10
+    size_bytes: 2645510
+    sha256: "f169845f3f330e2b18d6281cbf67e030443724d693ae0d1c2acf41cf1c4e0750"
+
+  purchase_orders_lines:
+    file: purchase_orders_lines.csv
+    row_count: 155495
+    column_count: 9
+    size_bytes: 11390884
+    sha256: "65911e0f1f12705b9df500f7b85b84b7367620b9ceb8890f08aa3e286a789aa6"
+
+  sales_orders_header:
+    file: sales_orders_header.csv
+    row_count: 20000
+    column_count: 11
+    size_bytes: 2114734
+    sha256: "3fda92f59d2ca55c5e6ca9d9f9037ba6791faf9795df26f5268e1b04dfe3d1b7"
+
+  sales_orders_lines:
+    file: sales_orders_lines.csv
+    row_count: 130402
+    column_count: 9
+    size_bytes: 7192548
+    sha256: "518f9b7872a54df52094526c28d56d5716272c892dcd363ccadefd4ccd3da6ac"
+
+  stock_ledger:
+    file: stock_ledger.csv
+    row_count: 237230
+    column_count: 9
+    size_bytes: 14880732
+    sha256: "4135fdbd167e2cea7988205dee98757610385616a126ac66b5bff42fb7dd2ee4"
+
+  suppliers:
+    file: suppliers.csv
+    row_count: 8
+    column_count: 12
+    size_bytes: 1063
+    sha256: "b70198a351609e080a04642d68537df479f3d2f3c253853780bc3caa4fb0d1e9"

@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: inventra_raw
+    schema: inventra
+    tables:
+      - name: raw_branches
+      - name: raw_customers
+      - name: raw_inventory_master
+      - name: raw_invoices
+      - name: raw_payments
+      - name: raw_products
+      - name: raw_purchase_orders_header
+      - name: raw_purchase_orders_lines
+      - name: raw_sales_orders_header
+      - name: raw_sales_orders_lines
+      - name: raw_stock_ledger
+      - name: raw_suppliers

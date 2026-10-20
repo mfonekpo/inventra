@@ -26,5 +26,3 @@ for files in data_files:
         print("File not found, skipping")
     except NotADirectoryError:
         print("Not a directory, skipping")
-
-

@@ -1,0 +1,199 @@
+version: 1
+database: inventra
+engine: MergeTree
+order_by:
+  branches: [branch_id]
+  customers: [customer_id]
+  inventory_master: [product_id, branch_id]
+  invoices: [invoice_id]
+  payments: [payment_id]
+  products: [product_id]
+  purchase_orders_header: [po_id]
+  purchase_orders_lines: [po_id, line_number]
+  sales_orders_header: [so_id]
+  sales_orders_lines: [so_id, line_number]
+  stock_ledger: [movement_id]
+  suppliers: [supplier_id]
+
+tables:
+  branches:
+    target: raw_branches
+    columns:
+      branch_id: String
+      branch_name: String
+      city: String
+      state: String
+      region: String
+      warehouse_type: String
+      warehouse_capacity: String
+      service_center_available: String
+      manager_id: String
+      total_employees: String
+      avg_monthly_revenue: String
+      monthly_operational_cost: String
+      market_demand_index: String
+
+  customers:
+    target: raw_customers
+    columns:
+      customer_id: String
+      customer_type: String
+      industry_segment: String
+      city: String
+      state: String
+      pincode: String
+      region: String
+      branch_id: String
+      credit_limit: String
+      current_balance: String
+      payment_terms: String
+      customer_since: String
+      last_purchase_date: String
+      total_purchase_value: String
+      customer_rating: String
+
+  inventory_master:
+    target: raw_inventory_master
+    columns:
+      product_id: String
+      branch_id: String
+      opening_stock: String
+      reorder_level: String
+      safety_stock: String
+      max_stock: String
+      current_stock: String
+      warehouse_bin: String
+
+  invoices:
+    target: raw_invoices
+    columns:
+      invoice_id: String
+      so_id: String
+      customer_id: String
+      branch_id: String
+      invoice_date: String
+      due_date: String
+      total_order_value: String
+      total_gst_amount: String
+      grand_total: String
+      payment_status: String
+
+  payments:
+    target: raw_payments
+    columns:
+      payment_id: String
+      invoice_id: String
+      payment_date: String
+      payment_amount: String
+      payment_method: String
+
+  products:
+    target: raw_products
+    columns:
+      product_id: String
+      product_name: String
+      category: String
+      machine_type: String
+      brand: String
+      model_compatibility: String
+      unit_cost: String
+      unit_price: String
+      margin_percentage: String
+      gst_rate: String
+      weight_kg: String
+      dimensions_cm: String
+      material_type: String
+      warranty_months: String
+      reorder_level: String
+      safety_stock: String
+      max_stock_level: String
+      lead_time_days: String
+      criticality_level: String
+      usage_frequency: String
+      uom: String
+      last_purchase_price: String
+      last_purchase_date: String
+
+  purchase_orders_header:
+    target: raw_purchase_orders_header
+    columns:
+      po_id: String
+      supplier_id: String
+      branch_id: String
+      order_date: String
+      expected_delivery_date: String
+      received_date: String
+      po_status: String
+      total_cost: String
+      total_gst_amount: String
+      grand_total: String
+
+  purchase_orders_lines:
+    target: raw_purchase_orders_lines
+    columns:
+      po_id: String
+      line_number: String
+      product_id: String
+      quantity: String
+      unit_cost: String
+      gst_rate: String
+      line_total: String
+      gst_amount: String
+      line_grand_total: String
+
+  sales_orders_header:
+    target: raw_sales_orders_header
+    columns:
+      so_id: String
+      customer_id: String
+      branch_id: String
+      order_date: String
+      delivery_date: String
+      order_status: String
+      payment_terms: String
+      total_order_value: String
+      total_gst_amount: String
+      grand_total: String
+      sales_channel: String
+
+  sales_orders_lines:
+    target: raw_sales_orders_lines
+    columns:
+      so_id: String
+      line_number: String
+      product_id: String
+      quantity: String
+      unit_price: String
+      gst_rate: String
+      line_total: String
+      gst_amount: String
+      line_grand_total: String
+
+  stock_ledger:
+    target: raw_stock_ledger
+    columns:
+      movement_id: String
+      product_id: String
+      branch_id: String
+      movement_type: String
+      movement_date: String
+      quantity: String
+      reference_type: String
+      reference_id: String
+      running_balance: String
+
+  suppliers:
+    target: raw_suppliers
+    columns:
+      supplier_id: String
+      supplier_name: String
+      supplier_type: String
+      product_category: String
+      city: String
+      province: String
+      region: String
+      pincode: String
+      lead_time_days: String
+      reliability_score: String
+      import_duty_rate: String
+      china_tax_id: String
